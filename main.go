@@ -13,16 +13,13 @@ func main() {
 	app := fiber.New()
 	app.Use(logger.New())
 
-	// Initialize DB
 	db := config.InitDB()
 
-	// Middleware to inject DB into context
 	app.Use(func(c *fiber.Ctx) error {
 		c.Locals("db", db)
 		return c.Next()
 	})
 
-	// Public routes
 	app.Post("/login", func(c *fiber.Ctx) error {
 		return controllers.Login(c)
 	})
@@ -30,10 +27,8 @@ func main() {
 		return controllers.Register(c)
 	})
 
-	// Group routes that require authentication
 	api := app.Group("/api", middleware.JWTProtected())
 
-	// Patient routes
 	api.Post("/patients", middleware.RoleRequired("receptionist"), func(c *fiber.Ctx) error {
 		return controllers.CreatePatient(c)
 	})

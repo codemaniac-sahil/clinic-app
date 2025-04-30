@@ -1,4 +1,3 @@
-// middleware/role_middleware.go
 package middleware
 
 import (

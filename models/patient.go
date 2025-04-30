@@ -1,4 +1,3 @@
-// models/patient.go
 package models
 
 import (
@@ -26,7 +25,6 @@ type Patient struct {
 	UpdatedAt        time.Time `json:"updated_at"`
 }
 
-// BeforeCreate is a GORM hook that runs before creating a new record
 func (p *Patient) BeforeCreate(tx *gorm.DB) error {
 	if p.ID == uuid.Nil {
 		p.ID = uuid.New()

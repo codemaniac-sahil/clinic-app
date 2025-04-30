@@ -7,7 +7,6 @@ import (
 	"gorm.io/gorm"
 )
 
-// User model (matches the "users" table in SQL)
 type User struct {
 	ID           uuid.UUID `gorm:"type:uuid;primary_key;default:gen_random_uuid()" json:"id"`
 	Email        string    `gorm:"uniqueIndex;not null" json:"email"`
@@ -19,7 +18,6 @@ type User struct {
 	UpdatedAt    time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"updated_at"`
 }
 
-// BeforeCreate hook to set timestamps
 func (user *User) BeforeCreate(tx *gorm.DB) (err error) {
 	user.CreatedAt = time.Now()
 	user.UpdatedAt = time.Now()

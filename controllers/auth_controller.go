@@ -22,7 +22,7 @@ type RegisterRequest struct {
 	LastName  string `json:"last_name"`
 	Email     string `json:"email"`
 	Password  string `json:"password"`
-	Role      string `json:"role"` // 'doctor' or 'receptionist'
+	Role      string `json:"role"`
 }
 
 // Login authenticates a user and returns a JWT token
