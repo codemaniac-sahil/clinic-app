@@ -1,0 +1,45 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+
+# Dependency directories
+/vendor/
+
+# Go module files
+go.sum
+
+# Go workspace file
+go.work
+
+# Compiled object files and libraries
+*.a
+*.o
+
+# Test output
+*.out
+*.coverage
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*~
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Debug and profiling files
+*.log
+*.pid
+*.prof
+
+# .env files for environment variables (optional but recommended to ignore)
+.env
+
+# Other Go-related files
+.golangci.yml
